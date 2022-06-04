@@ -54,7 +54,7 @@ void run() {
   // a = 1 -> rot I3
   // a = 2 -> grün I4
   // a = 3 -> blau I5
-  ric->send("debug","websocket","OK");
+  ric->send("mfc","websocket","OK");
   String result = ric->read_wait();
     
     ftduino.output_set(Ftduino::O8, Ftduino::HI);
