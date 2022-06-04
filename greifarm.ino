@@ -33,20 +33,17 @@ void loop() {
 
 void run() {
   
-  if (!ftduino.input_get(Ftduino::I2)) {
-    ftduino.motor_set(Ftduino::M1, Ftduino::RIGHT);
-  }
-  ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
+  ftduino.motor_set(Ftduino::M1, Ftduino::RIGHT);
+    while (!ftduino.input_get(Ftduino::I2)) delay(1);
+    ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
-  if (!ftduino.input_get(Ftduino::I6)) {
     ftduino.motor_set(Ftduino::M2, Ftduino::LEFT);
-  }
-  ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
+    while (!ftduino.input_get(Ftduino::I6)) delay(1);
+    ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
-  if (!ftduino.input_get(Ftduino::I7)) {
     ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT);
-  }
-  ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
+    while (!ftduino.input_get(Ftduino::I7)) delay(1);
+    ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 
 
   // a = 1 -> rot I3
@@ -56,6 +53,8 @@ void run() {
   String result = ric->read_wait();
     
     ftduino.output_set(Ftduino::O8, Ftduino::HI);
+
+    
     
     if (result == "r") {
       ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT);
@@ -106,6 +105,7 @@ void run() {
     delay(3000);
     
     ric->send("mfc","websocket","NEXT");
+    ric->read_wait();
     //Arm hoch
     ftduino.motor_set(Ftduino::M1, Ftduino::RIGHT);
     while (!ftduino.input_get(Ftduino::I2)) delay(1);
