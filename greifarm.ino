@@ -94,14 +94,13 @@ void run() {
     delay(3500);
     ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
-
+    ric->send("mfc","websocket","NEXT");
+    ric->read_wait();
 
     //Pneumatik aus (loslassen)
     ftduino.output_set(Ftduino::O7, Ftduino::OFF);
     ftduino.output_set(Ftduino::O8, Ftduino::OFF);
 
-    ric->send("mfc","websocket","NEXT");
-    ric->read_wait();
     delay(3000);
 
     //Arm hoch
