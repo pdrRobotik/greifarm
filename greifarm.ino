@@ -78,11 +78,16 @@ void run() {
     ftduino.motor_set(Ftduino::M1, Ftduino::RIGHT);
     while (!ftduino.input_get(Ftduino::I2)) delay(1);
 
-
+    //Arm einziehen
+    ftduino.motor_set(Ftduino::M2, Ftduino::LEFT);
+    while (!ftduino.input_get(Ftduino::I6)) delay(1);
+    ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
+    
     //drehen
     ftduino.motor_set(Ftduino::M3, Ftduino::LEFT);
     delay(5800);  //anpassen
     ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
+
 
     //Arm runter
     ftduino.motor_set(Ftduino::M1, Ftduino::LEFT);
@@ -106,10 +111,6 @@ void run() {
     while (!ftduino.input_get(Ftduino::I2)) delay(1);
     ftduino.motor_set(Ftduino::M1, Ftduino::OFF);
 
-    //Arm einziehen
-    ftduino.motor_set(Ftduino::M2, Ftduino::LEFT);
-    while (!ftduino.input_get(Ftduino::I6)) delay(1);
-    ftduino.motor_set(Ftduino::M2, Ftduino::OFF);
 
     //zurück (drehen)
     ftduino.motor_set(Ftduino::M3, Ftduino::RIGHT);
