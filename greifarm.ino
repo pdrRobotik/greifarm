@@ -81,7 +81,7 @@ void run() {
 
     //drehen
     ftduino.motor_set(Ftduino::M3, Ftduino::LEFT);
-    delay(5000);  //anpassen
+    delay(5800);  //anpassen
     ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 
     //Arm runter
