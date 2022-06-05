@@ -100,12 +100,10 @@ void run() {
     ftduino.output_set(Ftduino::O7, Ftduino::OFF);
     ftduino.output_set(Ftduino::O8, Ftduino::OFF);
 
-
-    
-    delay(3000);
-    
     ric->send("mfc","websocket","NEXT");
     ric->read_wait();
+    delay(3000);
+
     //Arm hoch
     ftduino.motor_set(Ftduino::M1, Ftduino::RIGHT);
     while (!ftduino.input_get(Ftduino::I2)) delay(1);
