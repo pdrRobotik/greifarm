@@ -85,7 +85,7 @@ void run() {
     
     //drehen
     ftduino.motor_set(Ftduino::M3, Ftduino::LEFT);
-    delay(5800);  //anpassen
+    while (!ftduino.input_get(Ftduino::I3)) delay(1);
     ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 
 
