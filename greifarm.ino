@@ -45,16 +45,11 @@ void run() {
     while (!ftduino.input_get(Ftduino::I7)) delay(1);
     ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 
-
-  // a = 1 -> rot I3
-  // a = 2 -> grün I4
-  // a = 3 -> blau I5
   ric->send("mfc","websocket","OK");
   String result = ric->read_wait();
     
     ftduino.output_set(Ftduino::O8, Ftduino::HI);
 
-    
     
     if (result == "r") {
       ftduino.motor_set(Ftduino::M2, Ftduino::RIGHT);
@@ -86,7 +81,7 @@ void run() {
 
     //drehen
     ftduino.motor_set(Ftduino::M3, Ftduino::LEFT);
-    delay(4900);  //anpassen
+    delay(5000);  //anpassen
     ftduino.motor_set(Ftduino::M3, Ftduino::OFF);
 
     //Arm runter
